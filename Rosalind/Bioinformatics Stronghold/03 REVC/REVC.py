@@ -1,4 +1,4 @@
-with open('/Users/jiwon/Downloads/rosalind_revc.txt') as input_data:
+with open('rosalind_revc.txt') as input_data:
     dna_seq = input_data.read().strip()
 
 def solution(dna_seq):
