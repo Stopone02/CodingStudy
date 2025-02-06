@@ -1,3 +1,5 @@
+# Consensus and Profile
+
 ## Problem
 A matrix is a rectangular table of values divided into rows and columns. An m×n matrix has m rows and n columns. Given a matrix A, we write Ai,j to indicate the value found at the intersection of row i and column j.
 
