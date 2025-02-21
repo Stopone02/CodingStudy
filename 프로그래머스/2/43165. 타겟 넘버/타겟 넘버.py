@@ -10,8 +10,6 @@ def dfs(a, sum_a, target):
         for i in range(1, 3):
             dfs(a+1, sum_a + (-1)**i * n[a], target)
             
-    
-         
 def solution(numbers, target):
     global answer, n
     answer = 0
