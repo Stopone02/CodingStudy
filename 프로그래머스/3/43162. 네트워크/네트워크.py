@@ -1,19 +1,23 @@
-graph = 0
+check = []
+answer = 0
 
-def dfs(node, visit):
-    global graph
-    for j in range(0, len(graph[node])):
-        if graph[node][j] == 1 and visit[j] != 1:
-            visit[j] = 1
-            dfs(j, visit)
+def network(index, computers):
+    global check, answer
+    check[index] = 1
+    for i in range(len(computers)):
+        if index == i:
+            continue
+        if computers[index][i] == 1:
+            if check[i] == 0:
+                network(i, computers)
 
 def solution(n, computers):
-    global graph
-    graph = computers
-    answer = 0
-    visit = [0 for _ in range(0, n)]
-    for i in range(0, n):
-        if visit[i] == 0:
-            dfs(i, visit)
+    global check, answer
+    for i in range(n):
+        check.append(0)
+    for i in range(n):
+        if check[i] == 0:
             answer += 1
+            network(i, computers)
     return answer
+    
