@@ -1,18 +1,16 @@
-answer = 0
-n = []
+target_check = 0
 
-def dfs(a, sum_a, target):
-    global answer, n
-    if a >= len(n):
-        if sum_a == target:
-            answer += 1
-    else:
-        for i in range(1, 3):
-            dfs(a+1, sum_a + (-1)**i * n[a], target)
-            
+def cal(lastnum, index, numbers, target):
+    global target_check
+    if index+1 == len(numbers):
+        if target == lastnum:
+            target_check += 1
+        return
+    cal(lastnum + numbers[index+1], index+1, numbers, target)
+    cal(lastnum - numbers[index+1], index+1, numbers, target)
+
 def solution(numbers, target):
-    global answer, n
-    answer = 0
-    n = numbers
-    dfs(0, 0, target)
-    return answer
+    global target_check
+    cal(numbers[0], 0, numbers, target)
+    cal(0-numbers[0], 0, numbers, target)
+    return target_check
